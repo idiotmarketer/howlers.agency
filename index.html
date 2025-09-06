@@ -13,13 +13,13 @@
 
   <style>
     :root{
-      --ink:#0b0b0b;
-      --charcoal:#111111;
-      --text:#e6e7ea;
-      --muted:#a7afbd;
-      --line:#22252b;
-      --blue:#3B82F6;
-      --orange:#FF6B35;
+      --ink:#0B0C0E;         
+      --charcoal:#111317;    
+      --text:#E8EAEC;        
+      --muted:#A7AFBD;       
+      --line:#232731;        
+      --blue:#4DA3FF;        
+      --orange:#22D3A5;      
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--ink);color:var(--text);font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
@@ -90,16 +90,32 @@
     .title{font-size:40px;margin:0 0 12px;line-height:1.15}
     .sub{color:#c7cad1;margin:0 0 32px;max-width:760px;font-size:18px;line-height:1.5}
 
-    /* Hero */
+    /* Hero (default balanced) */
     .hero{padding:200px 0 160px;position:relative;overflow:hidden;}
     .hero::before{
       content:"";
       position:absolute;
       top:0;left:0;right:0;bottom:0;
-      background:radial-gradient(1000px 700px at 40% 30%,rgba(59,130,246,.08),transparent 75%),
-                 radial-gradient(800px 600px at 75% 20%,rgba(255,107,53,.08),transparent 75%);
+      background:
+        radial-gradient(1100px 750px at 35% 30%, rgba(77,163,255,.10), transparent 70%),
+        radial-gradient(900px 600px at 80% 20%, rgba(34,211,165,.08), transparent 70%);
       z-index:0;
     }
+
+    /* Hero blue-dominant */
+    .hero.blue-dominant::before{
+      background:
+        radial-gradient(1200px 800px at 40% 35%, rgba(77,163,255,.15), transparent 70%),
+        radial-gradient(800px 600px at 80% 20%, rgba(34,211,165,.06), transparent 70%);
+    }
+
+    /* Hero green-dominant */
+    .hero.green-dominant::before{
+      background:
+        radial-gradient(1200px 800px at 35% 30%, rgba(34,211,165,.14), transparent 70%),
+        radial-gradient(900px 600px at 75% 25%, rgba(77,163,255,.07), transparent 70%);
+    }
+
     .hero h1{font-size:clamp(46px,8vw,92px);line-height:1.08;margin:0 0 20px;position:relative;z-index:1}
     .hero p{font-size:clamp(17px,2vw,22px);color:#c7cad1;max-width:760px;margin:0 0 30px;position:relative;z-index:1}
     .links{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
@@ -115,24 +131,24 @@
     }
 
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .tile{border:1px solid var(--line);border-radius:18px;padding:28px;background:#0e1014}
+    .tile{border:1px solid var(--line);border-radius:18px;padding:28px;background:#111317}
     .tile h3{margin:0 0 8px;font-size:22px}
     .tile p{margin:0;color:#cfd3da}
 
     .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    .card{border:1px solid var(--line);border-radius:16px;padding:28px;background:#0f1217;transition:.2s ease}
+    .card{border:1px solid var(--line);border-radius:16px;padding:28px;background:#111317;transition:.2s ease}
     .card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.3)}
     .card h4{margin:0 0 8px;font-size:20px}
     .card p{margin:0;color:#cfd3da}
     .card small{display:block;margin-top:10px;color:#9aa0ad}
 
     .principles{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
-    .list{border:1px solid var(--line);border-radius:16px;padding:28px;background:#0f1217}
+    .list{border:1px solid var(--line);border-radius:16px;padding:28px;background:#111317}
     .list li{margin:10px 0;color:#d7dae2}
     .epigram{border-left:3px solid var(--blue);padding:14px 18px;color:#e7eaf2;font-style:italic;background:#0f141b;border-radius:12px;align-self:center}
 
     .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
-    .who-card{border:1px solid var(--line);border-radius:14px;padding:20px 24px;background:#0f1217;color:#d7dae2;font-size:16px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:.2s ease}
+    .who-card{border:1px solid var(--line);border-radius:14px;padding:20px 24px;background:#111317;color:#d7dae2;font-size:16px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:.2s ease}
     .who-card:hover{background:#13171f;transform:translateY(-2px)}
     .who-card span{color:var(--blue);font-weight:bold}
     @media(max-width:800px){.who-grid{grid-template-columns:1fr}}
@@ -194,90 +210,112 @@
 
   <main id="top">
     <!-- HERO -->
-    <section class="hero">
-      <h1>Shaping modern brands<br/>for the insurance world.</h1>
-      <p>We cut through clichés and elevate outdated identities — crafting insurance brands that inspire trust and authority.</p>
-      <div class="links">
-        <a class="btn btn-primary" href="#contact">Book a consult</a>
-        <a class="btn btn-ghost" href="#how">Read the approach</a>
+    <section class="hero"><!-- add .blue-dominant or .green-dominant to test variations -->
+      <div class="wrap">
+        <h1>Shaping modern brands<br/>for the insurance world.</h1>
+        <p>We cut through clichés and elevate outdated identities — crafting insurance brands that inspire trust and authority.</p>
+        <div class="links">
+          <a class="btn btn-primary" href="#contact">Book a consult</a>
+          <a class="btn btn-ghost" href="#how">Read the approach</a>
+        </div>
       </div>
     </section>
 
     <!-- APPROACH -->
     <section id="how">
-      <p class="kicker">Approach</p>
-      <h2 class="title">Less noise. More signal.</h2>
-      <p class="sub">Insurance branding is crowded with clichés — handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps, designed to make brands feel inevitable.</p>
-      <div class="grid-3">
-        <div class="tile"><h3>1 — Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign — one rooted in credibility, not jargon.</p></div>
-        <div class="tile"><h3>2 — Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre — just modern creative that earns trust and lasts.</p></div>
-        <div class="tile"><h3>3 — Deploy</h3><p>Strategies that build momentum. Market entry, targeted campaigns, content that cuts through, sales enablement, and analytics that matter. Growth measured in credibility and confidence won.</p></div>
+      <div class="wrap">
+        <p class="kicker">Approach</p>
+        <h2 class="title">Less noise. More signal.</h2>
+        <p class="sub">Insurance branding is crowded with clichés — handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps, designed to make brands feel inevitable.</p>
+        <div class="grid-3">
+          <div class="tile"><h3>1 — Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign — one rooted in credibility, not jargon.</p></div>
+          <div class="tile"><h3>2 — Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre — just modern creative that earns trust and lasts.</p></div>
+          <div class="tile"><h3>3 — Deploy</h3><p>Strategies that build momentum. Market entry, targeted campaigns, content that cuts through, sales enablement, and analytics that matter. Growth measured in credibility and confidence won.</p></div>
+        </div>
       </div>
     </section>
 
     <!-- CAPABILITIES -->
     <section id="what">
-      <p class="kicker">Capabilities</p>
-      <h2 class="title">What we deliver</h2>
-      <p class="sub">Outcomes, not noise. If it doesn’t build credibility or move the business forward, it doesn’t leave our desk.</p>
-      <div class="grid-4">
-        <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale — across products, geographies, and teams — so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
-        <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick — clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
-        <div class="card"><h4>Strategies that sell</h4><p>Practical plans made with sales, not tossed over the wall. Market entry, targeting, and orchestration that translate brand into pipeline.</p><small>Ideal customer profiles, offers, channels, orchestration.</small></div>
-        <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, film, podcasts — crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
+      <div class="wrap">
+        <p class="kicker">Capabilities</p>
+        <h2 class="title">What we deliver</h2>
+        <p class="sub">Outcomes, not noise. If it doesn’t build credibility or move the business forward, it doesn’t leave our desk.</p>
+        <div class="grid-4">
+          <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale — across products, geographies, and teams — so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
+          <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick — clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
+          <div class="card"><h4>Strategies that sell</h4><p>Practical plans made with sales, not tossed over the wall. Market entry, targeting, and orchestration that translate brand into pipeline.</p><small>Ideal customer profiles, offers, channels, orchestration.</small></div>
+          <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, film, podcasts — crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
+        </div>
       </div>
     </section>
 
     <!-- PRINCIPLES -->
     <section id="why">
-      <p class="kicker">Principles</p>
-      <h2 class="title">What we believe</h2>
-      <p class="sub">Insurance doesn’t fail because it’s quiet. It fails because it’s forgettable. These are the rules we work by:</p>
-      <div class="principles">
-        <ul class="list">
-          <li><strong>Trust is the brand.</strong> Without it, nothing else compounds.</li>
-          <li><strong>Say less.</strong> The smartest story fits on one page.</li>
-          <li><strong>Design is discipline.</strong> Systems beat slogans; consistency builds confidence.</li>
-          <li><strong>Proof over posture.</strong> We optimise for credibility, pipeline, and pricing power.</li>
-          <li><strong>Innovation is clarity.</strong> Making obvious what others overlooked.</li>
-        </ul>
-        <div class="epigram">“Insurance doesn’t need more blue gradients. It needs identities worth remembering.” — Howlers</div>
+      <div class="wrap">
+        <p class="kicker">Principles</p>
+        <h2 class="title">What we believe</h2>
+        <p class="sub">Insurance doesn’t fail because it’s quiet. It fails because it’s forgettable. These are the rules we work by:</p>
+        <div class="principles">
+          <ul class="list">
+            <li><strong>Trust is the brand.</strong> Without it, nothing else compounds.</li>
+            <li><strong>Say less.</strong> The smartest story fits on one page.</li>
+            <li><strong>Design is discipline.</strong> Systems beat slogans; consistency builds confidence.</li>
+            <li><strong>Proof over posture.</strong> We optimise for credibility, pipeline, and pricing power.</li>
+            <li><strong>Innovation is clarity.</strong> Making obvious what others overlooked.</li>
+          </ul>
+          <div class="epigram">“Insurance doesn’t need more blue gradients. It needs identities worth remembering.” — Howlers</div>
+        </div>
       </div>
     </section>
 
     <!-- WHO WE HELP -->
     <section>
-      <p class="kicker">Who we help</p>
-      <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
-      <div class="who-grid">
-        <div class="who-card"><span>•</span> Look and sound like everyone else — and need distinction.</div>
-        <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
-        <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
-        <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
-        <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
-        <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
+      <div class="wrap">
+        <p class="kicker">Who we help</p>
+        <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
+        <div class="who-grid">
+          <div class="who-card"><span>•</span> Look and sound like everyone else — and need distinction.</div>
+          <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
+          <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
+          <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
+          <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
+          <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <p class="kicker">Start</p>
-      <h2 class="title">Let’s design something inevitable.</h2>
-      <p class="sub">Tell us the goal. We’ll reply within one business day.</p>
-      <form action="mailto:hello@howlers.agency" method="post" enctype="text/plain">
-        <label for="name">Name</label>
-        <input id="name" name="name" placeholder="Alex Smith" required>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="alex@company.com" required>
-        <label for="need">What do you need help with?</label>
-        <select id="need" name="need">
-          <option>Brand & Identity</option>
-          <option>Messaging / Narrative</option>
-          <option>GTM / ABM / Campaign</option>
-          <option>Content / Film / Podcast</option>
-          <option>Other</option>
-        </select>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="A short brief or the problem to solve…"></textarea>
-        <div class="links">
-          <button class="
+      <div class="wrap">
+        <p class="kicker">Start</p>
+        <h2 class="title">Let’s design something inevitable.</h2>
+        <p class="sub">Tell us the goal. We’ll reply within one business day.</p>
+        <form action="mailto:hello@howlers.agency" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input id="name" name="name" placeholder="Alex Smith" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="alex@company.com" required>
+          <label for="need">What do you need help with?</label>
+          <select id="need" name="need">
+            <option>Brand & Identity</option>
+            <option>Messaging / Narrative</option>
+            <option>GTM / ABM / Campaign</option>
+            <option>Content / Film / Podcast</option>
+            <option>Other</option>
+          </select>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="A short brief or the problem to solve…"></textarea>
+          <div class="links">
+            <button class="form-submit" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2025 Howlers. All rights reserved.</div>
+  </footer>
+</body>
+</html>
