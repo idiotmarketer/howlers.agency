@@ -56,19 +56,20 @@
     .menu-toggle:hover{background:rgba(255,255,255,.06)}
 
     /* Mobile nav layout */
+    nav ul.menu.mobile{display:none} /* hidden on desktop */
     @media (max-width:900px){
       .nav{height:72px}
-      nav ul.menu{
-        position:absolute;top:72px;left:0;right:0;display:none;flex-direction:column;gap:0;
+      nav ul.menu.desktop{display:none}        /* hide desktop list */
+      .menu-toggle{display:flex}
+      nav ul.menu.mobile{
+        position:absolute;top:72px;left:0;right:0;
+        display:none;flex-direction:column;gap:0;
         background:rgba(11,11,11,.92);backdrop-filter:blur(10px);
         border-top:1px solid var(--line);padding:12px 28px;z-index:1
       }
-      nav ul.menu.open{display:flex}
-      nav ul.menu li a{padding:14px 0;font-size:16px;opacity:1}
-      nav ul.menu li:last-child a{margin-top:6px;text-align:center;width:100%}
-      .menu-toggle{display:flex}
-      /* hide desktop inline menu on mobile */
-      nav ul.menu.desktop{display:none}
+      nav ul.menu.mobile.open{display:flex}
+      nav ul.menu.mobile li a{padding:14px 0;font-size:16px;opacity:1}
+      nav ul.menu.mobile li:last-child a{margin-top:6px;text-align:center;width:100%}
     }
 
     /* Buttons */
@@ -90,9 +91,9 @@
     .title{font-size:40px;margin:0 0 12px;line-height:1.15}
     .sub{color:#c7cad1;margin:0 0 32px;max-width:760px;font-size:18px;line-height:1.5}
 
-    /* Hero (reduced top gap) */
-    .hero{padding:120px 0 140px;position:relative;overflow:hidden}
-    @media (max-width:768px){ .hero{padding:80px 0 100px} }
+    /* Hero (balanced spacing) */
+    .hero{padding:140px 0 140px;position:relative;overflow:hidden}
+    @media (max-width:768px){ .hero{padding:100px 0 100px} }
     .hero::before{
       content:"";position:absolute;top:0;left:0;right:0;bottom:0;
       background:
@@ -174,7 +175,8 @@
           <li><a href="#why">Principles</a></li>
           <li><a href="#contact">Work with us</a></li>
         </ul>
-        <ul class="menu"><!-- mobile menu; opened with JS --></ul>
+        <!-- Mobile menu injected by JS -->
+        <ul class="menu mobile"></ul>
       </nav>
     </div>
   </header>
@@ -293,9 +295,9 @@
   <script>
     const btn = document.querySelector('.menu-toggle');
     const desktopMenu = document.querySelector('nav .desktop');
-    const mobileMenu = document.querySelectorAll('nav .menu')[1];
+    const mobileMenu = document.querySelector('nav .mobile');
 
-    // Clone desktop links into mobile container
+    // Clone desktop links into the mobile container once
     mobileMenu.innerHTML = desktopMenu.innerHTML;
 
     btn.addEventListener('click', () => {
@@ -305,11 +307,11 @@
     });
 
     // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click',()=>{
+    mobileMenu.addEventListener('click', (e)=>{
+      if(e.target.tagName === 'A'){
         mobileMenu.classList.remove('open');
         btn.setAttribute('aria-expanded','false');
-      });
+      }
     });
   </script>
 </body>
