@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Howlers — Identity that inspires. Strategy that converts.</title>
+  <meta name="description" content="Howlers. Perceptive, understated marketing for insurers, brokers and insurtech. Brand, messaging, growth. No theatre." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400&family=Inter:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#0b0b0b;
+      --charcoal:#111111;
+      --text:#e6e7ea;
+      --muted:#a7afbd;
+      --line:#22252b;
+      --blue:#3B82F6;
+      --orange:#FF6B35;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--ink);color:var(--text);font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.7);backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .mark{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--orange));box-shadow:0 0 12px rgba(59,130,246,.4);}
+    .name{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400;letter-spacing:.3px}
+    nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0}
+    nav a{color:inherit;text-decoration:none;opacity:.85}
+    nav a:hover{opacity:1}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:600;transition:.2s ease}
+    .btn-primary{background:linear-gradient(90deg,var(--blue),#5aa7ff);color:#fff;box-shadow:0 6px 16px rgba(59,130,246,.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(59,130,246,.4)}
+    .btn-ghost{border:1px solid var(--line);color:var(--text);}
+
+    h1{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400}
+    h2,h3,h4{font-family:"Barlow Semi Condensed",sans-serif;font-weight:300}
+    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin:0 0 10px}
+    .title{font-size:40px;margin:0 0 6px;line-height:1.1}
+    .sub{color:var(--muted);margin:0 0 28px;max-width:760px}
+
+    /* Hero with quieter gradient background */
+    .hero{padding:160px 0 120px;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(800px 600px at 30% 30%,rgba(59,130,246,.22),transparent 70%),radial-gradient(600px 400px at 80% 20%,rgba(255,107,53,.18),transparent 70%)}
+    .hero h1{font-size:clamp(42px,8vw,88px);line-height:1.1;margin:0 0 14px;position:relative;z-index:1}
+    .hero p{font-size:clamp(16px,2vw,22px);color:var(--muted);max-width:760px;margin:0 0 26px;position:relative;z-index:1}
+    .links{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+
+    section{padding:90px 0;position:relative}
+    section:before{content:"";position:absolute;top:0;left:50%;width:1px;height:40px;background:linear-gradient(to bottom,transparent,var(--line),transparent);transform:translateX(-50%)}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .tile{border:1px solid var(--line);border-radius:20px;padding:28px;background:#0e1014}
+    .tile h3{margin:0 0 8px;font-size:22px}
+    .tile p{margin:0;color:#cfd3da}
+
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#0f1217;transition:.2s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.3)}
+    .card h4{margin:0 0 8px;font-size:20px}
+    .card p{margin:0;color:#cfd3da}
+    .card small{display:block;margin-top:10px;color:var(--muted)}
+
+    .principles{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
+    .list{border:1px solid var(--line);border-radius:18px;padding:28px;background:#0f1217}
+    .list li{margin:10px 0;color:#d7dae2}
+    .epigram{border-left:3px solid var(--blue);padding:14px 18px;color:#e7eaf2;font-style:italic;background:#0f141b;border-radius:12px;align-self:center}
+
+    .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+    .who-card{border:1px solid var(--line);border-radius:16px;padding:20px 24px;background:#0f1217;color:#d7dae2;font-size:16px;line-height:1.4;display:flex;align-items:flex-start;gap:10px;transition:.2s ease}
+    .who-card:hover{background:#13171f;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+    .who-card span{color:var(--blue);font-weight:bold}
+    @media(max-width:800px){.who-grid{grid-template-columns:1fr}}
+
+    form{display:grid;gap:16px;max-width:680px}
+    label{font-size:13px;color:var(--muted)}
+    input,select,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#0d1015;color:var(--text)}
+    textarea{min-height:140px}
+
+    footer{padding:50px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
+
+    @media (max-width:1080px){.grid-4{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr}.principles{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top"><span class="mark"></span><span class="name">Howlers</span></a>
+      <nav>
+        <ul>
+          <li><a href="#how">Approach</a></li>
+          <li><a href="#what">Capabilities</a></li>
+          <li><a href="#why">Principles</a></li>
+          <li><a class="btn btn-ghost" href="#contact">Start a conversation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Shaping modern brands<br/>for the insurance world.</h1>
+      <p>We cut through clichés and elevate outdated identities — crafting insurance brands that inspire trust and authority.</p>
+      <div class="links">
+        <a class="btn btn-primary" href="#contact">Book a call</a>
+        <a class="btn btn-ghost" href="#how">Read the approach</a>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="how">
+      <p class="kicker">Approach</p>
+      <h2 class="title">Less noise. More signal.</h2>
+      <p class="sub">Insurance branding is crowded with clichés — handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps, designed to make brands feel inevitable.</p>
+      <div class="grid-3">
+        <div class="tile"><h3>1 — Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign — one rooted in credibility, not jargon.</p></div>
+        <div class="tile"><h3>2 — Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre — just modern creative that earns trust and lasts.</p></div>
+        <div class="tile"><h3>3 — Deploy</h3><p>Strategies that build momentum. Market entry, targeted campaigns, content that cuts through, sales enablement, and analytics that matter. Growth measured in credibility and confidence won.</p></div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="what">
+      <p class="kicker">Capabilities</p>
+      <h2 class="title">What we deliver</h2>
+      <p class="sub">Outcomes, not noise. If it doesn’t build credibility or move the business forward, it doesn’t leave our desk.</p>
+      <div class="grid-4">
+        <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale — across products, geographies, and teams — so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
+        <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick — clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
+        <div class="card"><h4>Strategies that sell</h4><p>Practical plans made with sales, not tossed over the wall. Market entry, targeting, and orchestration that translate brand into pipeline.</p><small>Ideal customer profiles, offers, channels, orchestration.</small></div>
+        <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, film, podcasts — crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section id="why">
+      <p class="kicker">Principles</p>
+      <h2 class="title">What we believe</h2>
+      <p class="sub">Insurance doesn’t fail because it’s quiet. It fails because it’s forgettable. These are the rules we work by:</p>
+      <div class="principles">
+        <ul class="list">
+          <li><strong>Trust is the brand.</strong> Without it, nothing else compounds.</li>
+          <li><strong>Say less.</strong> The smartest story fits on one page.</li>
+          <li><strong>Design is discipline.</strong> Systems beat slogans; consistency builds confidence.</li>
+          <li><strong>Proof over posture.</strong> We optimise for credibility, pipeline, and pricing power.</li>
+          <li><strong>Innovation is clarity.</strong> Making obvious what others overlooked.</li>
+        </ul>
+        <div class="epigram">“Insurance doesn’t need more blue gradients. It needs identities worth remembering.” — Howlers</div>
+      </div>
+    </section>
+
+    <!-- WHO WE HELP -->
+    <section>
+      <p class="kicker">Who we help</p>
+      <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
+      <div class="who-grid">
+        <div class="who-card"><span>•</span> Look and sound like everyone else — and need distinction.</div>
+        <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
+        <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
+        <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
+        <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
+        <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="kicker">Start</p>
+      <h2 class="title">Let’s design something inevitable.</h2>
+      <p class="sub">Tell us the goal. We’ll reply within one business day.</p>
+      <form action="mailto:hello@howlers.agency" method="post" enctype="text/plain">
+        <label for="name">Name</label>
+        <input id="name" name="name" placeholder="Alex Smith" required>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="alex@company.com" required>
+        <label for="need">What do you need help with?</label>
+        <select id="need" name="need">
+          <option>Brand & Identity</option>
+          <option>Messaging / Narrative</option>
+          <option>GTM / ABM / Campaign</option>
+          <option>Content / Film / Podcast</option>
+          <option>Other</option>
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="A short brief or the problem to solve…"></textarea>
+        <div class="links">
+          <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="y"></span> Howlers — Perceptive. Understated. Effective.</div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
