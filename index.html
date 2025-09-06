@@ -29,7 +29,7 @@
     header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.75);backdrop-filter:blur(10px);}
     .nav{display:flex;align-items:center;justify-content:space-between;height:90px;padding:0 12px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-    .mark{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--orange));}
+    .mark{width:26px;height:26px;object-fit:contain;border-radius:4px;}
     .name{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400;letter-spacing:.3px}
     nav ul{list-style:none;display:flex;gap:32px;margin:0;padding:0;align-items:center}
     nav a{color:inherit;text-decoration:none;opacity:.8;font-size:15px;display:flex;align-items:center}
@@ -197,7 +197,10 @@
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top"><span class="mark"></span><span class="name">Howlers</span></a>
+      <a class="brand" href="#top">
+        <img src="https://howlers.agency/logo-transparent-background.png" alt="Howlers logo" class="mark">
+        <span class="name">Howlers</span>
+      </a>
       <nav>
         <ul>
           <li><a href="#how">Approach</a></li>
@@ -211,7 +214,7 @@
 
   <main id="top">
     <!-- HERO -->
-    <section class="hero"><!-- add .blue-dominant or .green-dominant to test variations -->
+    <section class="hero">
       <div class="wrap">
         <h1>Shaping modern brands<br/>for the insurance world.</h1>
         <p>We cut through clichés and elevate outdated identities — crafting insurance brands that inspire trust and authority.</p>
