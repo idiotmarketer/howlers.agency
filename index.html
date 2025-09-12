@@ -1,22 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B1SPYNC0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K2B1SPYNC0');
-</script>
-
   <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Branding & Marketing for Insurance | Howlers</title>
   <meta name="description" content="Howlers helps insurers, brokers & insurtechs stand out. We craft brands, messaging & strategies that inspire trust, credibility & growth." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B1SPYNC0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K2B1SPYNC0');
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,14 +72,13 @@
       .nav{height:72px}
       nav ul.menu.mobile{
         position:absolute;top:72px;left:0;right:0;display:none;flex-direction:column;gap:0;
-        background:#0B0C0E; /* solid background */
+        background:#0B0C0E;
         border-top:1px solid var(--line);padding:12px 28px;z-index:1
       }
       nav ul.menu.mobile.open{display:flex}
       nav ul.menu.mobile li a{padding:14px 0;font-size:16px;opacity:1}
       nav ul.menu.mobile li:last-child a{margin-top:6px;text-align:center;width:100%}
       .menu-toggle{display:flex;margin-left:auto}
-      /* hide desktop inline menu on mobile */
       nav ul.menu.desktop{display:none}
     }
 
@@ -104,7 +101,7 @@
     .title{font-size:40px;margin:0 0 12px;line-height:1.15}
     .sub{color:#c7cad1;margin:0 0 32px;max-width:760px;font-size:18px;line-height:1.5}
 
-    /* Hero (reduced top gap) */
+    /* Hero */
     .hero{padding:120px 0 140px;position:relative;overflow:hidden}
     @media (max-width:768px){ .hero{padding:80px 0 100px} }
     .hero::before{
@@ -153,7 +150,8 @@
     .form-submit{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:500;transition:.2s ease;font-size:15px;position:relative;z-index:1;background:rgba(255,255,255,0.04);color:#fff;border:1px solid transparent;background-clip:padding-box}
     .form-submit::before{
       content:"";position:absolute;top:-1px;left:-1px;right:-1px;bottom:-1px;border-radius:10px;padding:1px;background:linear-gradient(135deg,var(--blue),var(--orange));
-      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
     .form-submit:hover{background:rgba(255,255,255,0.08)}
 
     footer{padding:50px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center;background:var(--ink)}
@@ -163,6 +161,30 @@
       .grid-3{grid-template-columns:1fr}
       .principles{grid-template-columns:1fr}
     }
+
+    /* --- Contact chips --- */
+    .choices {display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 22px}
+    .choice {
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      border:1px solid var(--line); background:#0d1015; color:var(--text);
+      padding:10px 16px; border-radius:999px; font-size:15px; cursor:pointer;
+      transition:.18s ease; line-height:1; user-select:none;
+    }
+    .choice:hover {background:#13171f}
+    .choice[aria-pressed="true"] {
+      border-color: transparent; color:#fff; background:rgba(255,255,255,0.06);
+      position:relative;
+    }
+    .choice[aria-pressed="true"]::before{
+      content:""; position:absolute; inset:-1px; border-radius:999px; padding:1px;
+      background:linear-gradient(135deg,var(--blue),var(--orange));
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor; mask-composite:exclude;
+      pointer-events:none;
+    }
+    .choice:focus-visible{outline:2px solid var(--blue); outline-offset:2px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:720px){.form-row{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -211,10 +233,10 @@
       <div class="wrap">
         <p class="kicker">Approach</p>
         <h2 class="title">Less noise. More signal.</h2>
-        <p class="sub">Insurance branding is crowded with clichés - handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps, designed to make brands feel inevitable.</p>
+        <p class="sub">Insurance branding is crowded with clichés: handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps designed to make brands feel inevitable.</p>
         <div class="grid-3">
-          <div class="tile"><h3>Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign - one rooted in credibility, not jargon.</p></div>
-          <div class="tile"><h3>Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre, just modern creative that earns trust and lasts.</p></div>
+          <div class="tile"><h3>Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign, one rooted in credibility, not jargon.</p></div>
+          <div class="tile"><h3>Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre. Just modern creative that earns trust and lasts.</p></div>
           <div class="tile"><h3>Deploy</h3><p>Strategies that build momentum. Market entry, targeted campaigns, content that cuts through, sales enablement, and analytics that matter. Growth measured in credibility and confidence won.</p></div>
         </div>
       </div>
@@ -227,10 +249,10 @@
         <h2 class="title">What we deliver</h2>
         <p class="sub">Outcomes, not noise. If it doesn’t build credibility or move the business forward, it doesn’t leave our desk.</p>
         <div class="grid-4">
-          <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale across products, geographies, and teams - so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
-          <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick - clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
+          <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale across products, geographies, and teams, so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
+          <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick: clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
           <div class="card"><h4>Strategies that sell</h4><p>Practical plans made with sales, not tossed over the wall. Market entry, targeting, and orchestration that translate brand into pipeline.</p><small>Ideal customer profiles, offers, channels, orchestration.</small></div>
-          <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, video, podcasts all crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
+          <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, video, podcasts crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
         </div>
       </div>
     </section>
@@ -258,9 +280,9 @@
     <section>
       <div class="wrap">
         <p class="kicker">Who we help</p>
-                <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
+        <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
         <div class="who-grid">
-          <div class="who-card"><span>•</span> Look and sound like everyone else and need distinction.</div>
+          <div class="who-card"><span>•</span> Look and sound like everyone else, and need distinction.</div>
           <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
           <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
           <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
@@ -275,22 +297,50 @@
       <div class="wrap">
         <p class="kicker">Start</p>
         <h2 class="title">The smarter story starts here.</h2>
-        <p class="sub">Tell us the goal. We’ll reply within one business day.</p>
-        <form action="mailto:team@howlers.agency" method="post" enctype="text/plain">
-          <label for="name">Name</label>
-          <input id="name" name="name" placeholder="Alex Smith" required>
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" placeholder="alex@company.com" required>
-          <label for="need">What do you need help with?</label>
-          <select id="need" name="need">
-            <option>Brand & Identity</option>
-            <option>Messaging / Narrative</option>
-            <option>GTM / ABM / Campaign</option>
-            <option>Content / Film / Podcast</option>
-            <option>Other</option>
-          </select>
+        <p class="sub">Select what you need and tell us the goal. We’ll reply within one business day.</p>
+
+        <form action="mailto:team@howlers.agency" method="post" enctype="text/plain" id="contact-form">
+          <!-- Multi-select chips -->
+          <div class="choices" role="group" aria-label="What do you need help with?">
+            <button type="button" class="choice" aria-pressed="false">Brand &amp; identity</button>
+            <button type="button" class="choice" aria-pressed="false">Messaging / narrative</button>
+            <button type="button" class="choice" aria-pressed="false">Go-to-market</button>
+            <button type="button" class="choice" aria-pressed="false">A new website</button>
+            <button type="button" class="choice" aria-pressed="false">Website refresh</button>
+            <button type="button" class="choice" aria-pressed="false">Content / film / podcast</button>
+            <button type="button" class="choice" aria-pressed="false">Digital marketing</button>
+            <button type="button" class="choice" aria-pressed="false">Marketing strategy</button>
+            <button type="button" class="choice" aria-pressed="false">Other</button>
+          </div>
+
+          <!-- Hidden field that captures selections -->
+          <input type="hidden" name="services" id="services" value="">
+
+          <div class="form-row">
+            <div>
+              <label for="first">First name</label>
+              <input id="first" name="first" placeholder="Alex" required>
+            </div>
+            <div>
+              <label for="last">Last name</label>
+              <input id="last" name="last" placeholder="Smith" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="alex@company.com" required>
+            </div>
+            <div>
+              <label for="budget">Budget (optional)</label>
+              <input id="budget" name="budget" placeholder="£25k–£50k">
+            </div>
+          </div>
+
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="A short brief or the problem to solve…"></textarea>
+          <textarea id="message" name="message" placeholder="A short brief or the problem to solve…" required></textarea>
+
           <div class="links">
             <button class="form-submit" type="submit">Send</button>
           </div>
@@ -324,6 +374,35 @@
         mobileMenu.classList.remove('open');
         btn.setAttribute('aria-expanded','false');
       }
+    });
+  </script>
+
+  <!-- Contact chips script -->
+  <script>
+    // Multi-select chips -> hidden input "services"
+    const chips = Array.from(document.querySelectorAll('.choice'));
+    const servicesField = document.getElementById('services');
+
+    function updateServices(){
+      const selected = chips
+        .filter(c => c.getAttribute('aria-pressed') === 'true')
+        .map(c => c.textContent.trim());
+      servicesField.value = selected.join(', ');
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const pressed = chip.getAttribute('aria-pressed') === 'true';
+        chip.setAttribute('aria-pressed', String(!pressed));
+        updateServices();
+      });
+      chip.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); chip.click(); }
+      });
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', () => {
+      updateServices();
     });
   </script>
 </body>
