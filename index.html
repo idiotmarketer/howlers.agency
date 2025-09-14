@@ -72,8 +72,7 @@
       .nav{height:72px}
       nav ul.menu.mobile{
         position:absolute;top:72px;left:0;right:0;display:none;flex-direction:column;gap:0;
-        background:#0B0C0E;
-        border-top:1px solid var(--line);padding:12px 28px;z-index:1
+        background:#0B0C0E; border-top:1px solid var(--line);padding:12px 28px;z-index:1
       }
       nav ul.menu.mobile.open{display:flex}
       nav ul.menu.mobile li a{padding:14px 0;font-size:16px;opacity:1}
@@ -241,6 +240,22 @@
       </div>
     </section>
 
+        <!-- WHO WE HELP -->
+    <section>
+      <div class="wrap">
+        <p class="kicker">Who we help</p>
+        <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
+        <div class="who-grid">
+          <div class="who-card"><span>•</span> Look and sound like everyone else, and need distinction.</div>
+          <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
+          <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
+          <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
+          <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
+          <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
+        </div>
+      </div>
+    </section>
+    
     <!-- CAPABILITIES -->
     <section id="what">
       <div class="wrap">
@@ -275,22 +290,6 @@
       </div>
     </section>
 
-    <!-- WHO WE HELP -->
-    <section>
-      <div class="wrap">
-        <p class="kicker">Who we help</p>
-        <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
-        <div class="who-grid">
-          <div class="who-card"><span>•</span> Look and sound like everyone else, and need distinction.</div>
-          <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
-          <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
-          <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
-          <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
-          <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTACT -->
     <section id="contact">
       <div class="wrap">
@@ -298,14 +297,16 @@
         <h2 class="title">The smarter story starts here.</h2>
         <p class="sub">Select what you need and tell us the goal. We’ll reply within one business day.</p>
 
-        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-          <!-- Web3Forms required fields -->
+        <!-- Status message -->
+        <div id="form-status" aria-live="polite" style="display:none;margin:0 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#111317;color:#d7dae2;"></div>
+
+        <form id="contact-form" method="POST">
+          <!-- Web3Forms hidden fields -->
           <input type="hidden" name="access_key" value="2db9af03-a2a7-424a-a3fc-8939a070ea1b">
-          <input type="hidden" name="to_email" value="team@howlers.agency">
-          <input type="hidden" name="from_name" value="Howlers Website">
-          <input type="hidden" name="subject" value="New enquiry from Howlers website">
-          <!-- Captures chip selections -->
-          <input type="hidden" name="services" id="services" value="">
+          <input type="hidden" name="to_email"   value="team@howlers.agency">
+          <input type="hidden" name="from_name"  value="Howlers Website">
+          <input type="hidden" name="subject"    value="New enquiry from Howlers website">
+          <input type="hidden" name="services"   id="services" value="">
 
           <!-- Multi-select chips -->
           <div class="choices" role="group" aria-label="What do you need help with?">
@@ -346,7 +347,7 @@
           <textarea id="message" name="message" placeholder="A short brief or the problem to solve…" required></textarea>
 
           <div class="links">
-            <button class="form-submit" type="submit">Send</button>
+            <button class="form-submit" type="submit" id="submit-btn">Send</button>
           </div>
         </form>
 
@@ -385,19 +386,17 @@
     });
   </script>
 
-  <!-- Contact chips script -->
+  <!-- Contact chips + AJAX submit -->
   <script>
     // Multi-select chips -> hidden input "services"
     const chips = Array.from(document.querySelectorAll('.choice'));
     const servicesField = document.getElementById('services');
-
     function updateServices(){
       const selected = chips
         .filter(c => c.getAttribute('aria-pressed') === 'true')
         .map(c => c.textContent.trim());
       servicesField.value = selected.join(', ');
     }
-
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
         const pressed = chip.getAttribute('aria-pressed') === 'true';
@@ -409,9 +408,50 @@
       });
     });
 
-    // Ensure latest selection captured on submit
-    document.getElementById('contact-form').addEventListener('submit', () => {
+    // AJAX submit to Web3Forms (no redirect)
+    const form = document.getElementById('contact-form');
+    const statusBox = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+    const ENDPOINT = 'https://api.web3forms.com/submit';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
       updateServices();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      statusBox.style.display = 'none';
+
+      const data = new FormData(form);
+      data.append('user_agent', navigator.userAgent);
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.message || 'Submission failed');
+        }
+
+        // Success
+        form.reset();
+        chips.forEach(c => c.setAttribute('aria-pressed','false'));
+        updateServices();
+        statusBox.style.display = 'block';
+        statusBox.style.borderColor = 'rgba(34,211,165,.5)';
+        statusBox.textContent = 'Thanks — we’ve received your message and will reply within one business day.';
+      } catch (err) {
+        statusBox.style.display = 'block';
+        statusBox.style.borderColor = '#a33';
+        statusBox.textContent = 'Sorry, something went wrong. Please email team@howlers.agency directly.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+      }
     });
   </script>
 </body>
