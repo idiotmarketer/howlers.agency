@@ -7,15 +7,6 @@
   <title>Branding & Marketing for Insurance | Howlers</title>
   <meta name="description" content="Howlers helps insurers, brokers & insurtechs stand out. We craft brands, messaging & strategies that inspire trust, credibility & growth." />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2B1SPYNC0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-K2B1SPYNC0');
-  </script>
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +63,8 @@
       .nav{height:72px}
       nav ul.menu.mobile{
         position:absolute;top:72px;left:0;right:0;display:none;flex-direction:column;gap:0;
-        background:#0B0C0E; border-top:1px solid var(--line);padding:12px 28px;z-index:1
+        background:#0B0C0E;
+        border-top:1px solid var(--line);padding:12px 28px;z-index:1
       }
       nav ul.menu.mobile.open{display:flex}
       nav ul.menu.mobile li a{padding:14px 0;font-size:16px;opacity:1}
@@ -94,7 +86,7 @@
     .btn-ghost:hover{background:#1a1d24}
 
     /* Type */
-    h1{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400; text-wrap:balance;}
+    h1{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400;text-wrap:balance;}
     h2,h3,h4{font-family:"Barlow Semi Condensed",sans-serif;font-weight:300}
     .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin:0 0 10px}
     .title{font-size:40px;margin:0 0 12px;line-height:1.15}
@@ -144,7 +136,14 @@
 
     form{display:grid;gap:16px;max-width:680px}
     label{font-size:13px;color:var(--muted)}
-    input,select,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#0d1015;color:#var(--text)}
+    input,select,textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#0d1015;
+      color:var(--text); /* ✅ fixed text color */
+    }
     textarea{min-height:140px}
     .form-submit{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:500;transition:.2s ease;font-size:15px;position:relative;z-index:1;background:rgba(255,255,255,0.04);color:#fff;border:1px solid transparent;background-clip:padding-box}
     .form-submit::before{
@@ -159,30 +158,6 @@
       .grid-3{grid-template-columns:1fr}
       .principles{grid-template-columns:1fr}
     }
-
-    /* --- Contact chips --- */
-    .choices {display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 22px}
-    .choice {
-      appearance:none; -webkit-appearance:none; -moz-appearance:none;
-      border:1px solid var(--line); background:#0d1015; color:#E8EAEC;
-      padding:10px 16px; border-radius:999px; font-size:15px; cursor:pointer;
-      transition:.18s ease; line-height:1; user-select:none;
-    }
-    .choice:hover {background:#13171f}
-    .choice[aria-pressed="true"] {
-      border-color: transparent; color:#fff; background:rgba(255,255,255,0.06);
-      position:relative;
-    }
-    .choice[aria-pressed="true"]::before{
-      content:""; position:absolute; inset:-1px; border-radius:999px; padding:1px;
-      background:linear-gradient(135deg,var(--blue),var(--orange));
-      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      -webkit-mask-composite:xor; mask-composite:exclude;
-      pointer-events:none;
-    }
-    .choice:focus-visible{outline:2px solid var(--blue); outline-offset:2px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media(max-width:720px){.form-row{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -203,12 +178,13 @@
       <!-- Nav -->
       <nav>
         <ul class="menu desktop">
+          <li><a href="#who">Who we help</a></li>
           <li><a href="#how">Approach</a></li>
           <li><a href="#what">Capabilities</a></li>
           <li><a href="#why">Principles</a></li>
           <li><a href="#contact">Work with us</a></li>
         </ul>
-        <ul class="menu mobile"><!-- mobile menu populated by JS --></ul>
+        <ul class="menu mobile"></ul>
       </nav>
     </div>
   </header>
@@ -226,13 +202,13 @@
       </div>
     </section>
 
-    <!-- WHO WE HELP (moved just below the fold) -->
-    <section>
+    <!-- WHO WE HELP -->
+    <section id="who">
       <div class="wrap">
         <p class="kicker">Who we help</p>
         <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
         <div class="who-grid">
-          <div class="who-card"><span>•</span> Look and sound like everyone else, and need distinction.</div>
+          <div class="who-card"><span>•</span> Look and sound like everyone else and need distinction.</div>
           <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
           <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
           <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
@@ -247,10 +223,10 @@
       <div class="wrap">
         <p class="kicker">Approach</p>
         <h2 class="title">Less noise. More signal.</h2>
-        <p class="sub">Insurance branding is crowded with clichés: handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps designed to make brands feel inevitable.</p>
+        <p class="sub">Insurance branding is crowded with clichés - handshakes, skylines, stock phrases. We strip that away and rebuild with clarity, confidence, and credibility. Three deliberate steps, designed to make brands feel inevitable.</p>
         <div class="grid-3">
-          <div class="tile"><h3>Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign, one rooted in credibility, not jargon.</p></div>
-          <div class="tile"><h3>Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre. Just modern creative that earns trust and lasts.</p></div>
+          <div class="tile"><h3>Diagnose</h3><p>Find the edge. Analyse category, competitors, governance, and politics. Define a position that even a CFO can sign - one rooted in credibility, not jargon.</p></div>
+          <div class="tile"><h3>Design</h3><p>Identity and narrative with weight. Premium, restrained, memorable. No theatre, just modern creative that earns trust and lasts.</p></div>
           <div class="tile"><h3>Deploy</h3><p>Strategies that build momentum. Market entry, targeted campaigns, content that cuts through, sales enablement, and analytics that matter. Growth measured in credibility and confidence won.</p></div>
         </div>
       </div>
@@ -263,30 +239,28 @@
         <h2 class="title">What we deliver</h2>
         <p class="sub">Outcomes, not noise. If it doesn’t build credibility or move the business forward, it doesn’t leave our desk.</p>
         <div class="grid-4">
-          <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale across products, geographies, and teams, so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
-          <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick: clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
+          <div class="card"><h4>Brands that endure</h4><p>Identity systems and guidelines built to scale across products, geographies, and teams - so insurance brands feel modern everywhere they show up.</p><small>Logos, type, colour, motion, usage.</small></div>
+          <div class="card"><h4>Messages that matter</h4><p>From executive narrative to sales decks, we write stories that stick - clear enough for clients, credible enough for the boardroom.</p><small>Positioning, proof, talk-tracks, one-liners.</small></div>
           <div class="card"><h4>Strategies that sell</h4><p>Practical plans made with sales, not tossed over the wall. Market entry, targeting, and orchestration that translate brand into pipeline.</p><small>Ideal customer profiles, offers, channels, orchestration.</small></div>
-          <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, video, podcasts crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
+          <div class="card"><h4>Content with weight</h4><p>Thought pieces, whitepapers, video, podcasts all crafted to earn attention, not just fill feeds. Premium creative people actually finish.</p><small>Editorial, script, production, distribution.</small></div>
         </div>
       </div>
     </section>
 
     <!-- PRINCIPLES -->
     <section id="why">
-      <div class="wrap">
-        <p class="kicker">Principles</p>
-        <h2 class="title">What we believe</h2>
-        <p class="sub">Insurance doesn’t fail because it’s quiet. It fails because it’s forgettable. These are the rules we work by:</p>
-        <div class="principles">
+      <div class="wrap principles">
+        <div>
+          <p class="kicker">Principles</p>
+          <h2 class="title">The rules we work by</h2>
           <ul class="list">
-            <li><strong>Trust is the brand.</strong> Without it, nothing else compounds.</li>
-            <li><strong>Say less.</strong> The smartest story fits on one page.</li>
-            <li><strong>Design is discipline.</strong> Systems beat slogans; consistency builds confidence.</li>
-            <li><strong>Proof over posture.</strong> We optimise for credibility, pipeline, and pricing power.</li>
-            <li><strong>Innovation is clarity.</strong> Making obvious what others overlooked.</li>
+            <li>Trust is the product. Creativity should raise your rates, not your pulse.</li>
+            <li>Say less. The smartest line fits on one slide.</li>
+            <li>Design is governance. Systems beat heroics. Consistency compounds.</li>
+            <li>Proof > posture. We optimise for pipeline and pricing power.</li>
           </ul>
-          <div class="epigram">Insurance doesn’t need more blue gradients. It needs identities worth remembering.</div>
         </div>
+        <div class="epigram">“Insurance doesn’t need more blue gradients. It needs identities worth remembering.” — Howlers</div>
       </div>
     </section>
 
@@ -296,64 +270,28 @@
         <p class="kicker">Start</p>
         <h2 class="title">The smarter story starts here.</h2>
         <p class="sub">Select what you need and tell us the goal. We’ll reply within one business day.</p>
-
-        <!-- Status message -->
-        <div id="form-status" aria-live="polite" style="display:none;margin:0 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#111317;color:#d7dae2;"></div>
-
-        <form id="contact-form" method="POST">
-          <!-- Web3Forms hidden fields -->
+        <form id="contact-form">
           <input type="hidden" name="access_key" value="2db9af03-a2a7-424a-a3fc-8939a070ea1b">
-          <input type="hidden" name="to_email"   value="team@howlers.agency">
-          <input type="hidden" name="from_name"  value="Howlers Website">
-          <input type="hidden" name="subject"    value="New enquiry from Howlers website">
-          <input type="hidden" name="services"   id="services" value="">
-
-          <!-- Multi-select chips -->
-          <div class="choices" role="group" aria-label="What do you need help with?">
-            <button type="button" class="choice" aria-pressed="false">Brand &amp; identity</button>
-            <button type="button" class="choice" aria-pressed="false">Messaging / narrative</button>
-            <button type="button" class="choice" aria-pressed="false">Go-to-market</button>
-            <button type="button" class="choice" aria-pressed="false">A new website</button>
-            <button type="button" class="choice" aria-pressed="false">Website refresh</button>
-            <button type="button" class="choice" aria-pressed="false">Content / film / podcast</button>
-            <button type="button" class="choice" aria-pressed="false">Digital marketing</button>
-            <button type="button" class="choice" aria-pressed="false">Marketing strategy</button>
-            <button type="button" class="choice" aria-pressed="false">Other</button>
+          <div class="options">
+            <label><input type="checkbox" name="services" value="Brand & identity"> Brand & identity</label>
+            <label><input type="checkbox" name="services" value="Messaging / narrative"> Messaging / narrative</label>
+            <label><input type="checkbox" name="services" value="Go-to-market"> Go-to-market</label>
+            <label><input type="checkbox" name="services" value="A new website"> A new website</label>
+            <label><input type="checkbox" name="services" value="Website refresh"> Website refresh</label>
+            <label><input type="checkbox" name="services" value="Content / film / podcast"> Content / film / podcast</label>
+            <label><input type="checkbox" name="services" value="Digital marketing"> Digital marketing</label>
+            <label><input type="checkbox" name="services" value="Marketing strategy"> Marketing strategy</label>
+            <label><input type="checkbox" name="services" value="Other"> Other</label>
           </div>
-
-          <div class="form-row">
-            <div>
-              <label for="first">First name</label>
-              <input id="first" name="first" placeholder="Alex" required>
-            </div>
-            <div>
-              <label for="last">Last name</label>
-              <input id="last" name="last" placeholder="Smith" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" name="email" placeholder="alex@company.com" required>
-            </div>
-            <div>
-              <label for="budget">Budget (optional)</label>
-              <input id="budget" name="budget" placeholder="£25k–£50k">
-            </div>
-          </div>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="A short brief or the problem to solve…" required></textarea>
-
-          <div class="links">
-            <button class="form-submit" type="submit" id="submit-btn">Send</button>
-          </div>
+          <input type="text" name="first_name" placeholder="First name" required>
+          <input type="text" name="last_name" placeholder="Last name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="budget" placeholder="Budget (optional)">
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button type="submit" class="form-submit">Send</button>
         </form>
-
-        <p style="margin-top:20px; color:#c7cad1; font-size:15px;">
-          Prefer email? <a href="mailto:team@howlers.agency" style="color:#4DA3FF;">team@howlers.agency</a>
-        </p>
+        <p style="margin-top:15px;color:var(--muted);">Prefer email? <a href="mailto:team@howlers.agency" style="color:var(--blue);text-decoration:none">team@howlers.agency</a></p>
+        <div id="form-response" style="margin-top:20px;display:none;color:var(--orange);font-weight:500;"></div>
       </div>
     </section>
   </main>
@@ -362,95 +300,42 @@
     <div class="wrap">© 2025 Howlers. All rights reserved.</div>
   </footer>
 
-  <!-- Mobile menu script -->
   <script>
-    const btn = document.querySelector('.menu-toggle');
-    const desktopMenu = document.querySelector('nav .menu.desktop');
-    const mobileMenu  = document.querySelector('nav .menu.mobile');
-
-    // Clone desktop links into mobile container
-    mobileMenu.innerHTML = desktopMenu.innerHTML;
-
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      mobileMenu.classList.toggle('open', !open);
+    // Mobile menu toggle
+    const toggle=document.querySelector('.menu-toggle');
+    const mobileMenu=document.querySelector('nav ul.menu.mobile');
+    const desktopMenu=document.querySelector('nav ul.menu.desktop').cloneNode(true);
+    mobileMenu.appendChild(desktopMenu.cloneNode(true));
+    toggle.addEventListener('click',()=>{
+      const expanded=toggle.getAttribute('aria-expanded')==='true';
+      toggle.setAttribute('aria-expanded',String(!expanded));
+      mobileMenu.classList.toggle('open');
     });
 
-    // Close mobile menu on link click
-    mobileMenu.addEventListener('click', e => {
-      if (e.target.tagName === 'A') {
-        mobileMenu.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
-    });
-  </script>
-
-  <!-- Contact chips + AJAX submit -->
-  <script>
-    // Multi-select chips -> hidden input "services"
-    const chips = Array.from(document.querySelectorAll('.choice'));
-    const servicesField = document.getElementById('services');
-    function updateServices(){
-      const selected = chips
-        .filter(c => c.getAttribute('aria-pressed') === 'true')
-        .map(c => c.textContent.trim());
-      servicesField.value = selected.join(', ');
-    }
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        const pressed = chip.getAttribute('aria-pressed') === 'true';
-        chip.setAttribute('aria-pressed', String(!pressed));
-        updateServices();
-      });
-      chip.addEventListener('keydown', (e) => {
-        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); chip.click(); }
-      });
-    });
-
-    // AJAX submit to Web3Forms (no redirect)
-    const form = document.getElementById('contact-form');
-    const statusBox = document.getElementById('form-status');
-    const submitBtn = document.getElementById('submit-btn');
-    const ENDPOINT = 'https://api.web3forms.com/submit';
-
-    form.addEventListener('submit', async (e) => {
+    // Contact form handling
+    const form=document.getElementById('contact-form');
+    const responseMsg=document.getElementById('form-response');
+    form.addEventListener('submit',async(e)=>{
       e.preventDefault();
-      updateServices();
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-      statusBox.style.display = 'none';
-
-      const data = new FormData(form);
-      data.append('user_agent', navigator.userAgent);
-
-      try {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+      const formData=new FormData(form);
+      const object=Object.fromEntries(formData.entries());
+      const json=JSON.stringify(object);
+      try{
+        const res=await fetch("https://api.web3forms.com/submit",{
+          method:"POST",headers:{"Content-Type":"application/json"},
+          body:json
         });
-
-        if (!res.ok) {
-          const err = await res.json().catch(() => ({}));
-          throw new Error(err.message || 'Submission failed');
+        if(res.ok){
+          form.reset();
+          responseMsg.style.display="block";
+          responseMsg.textContent="Thanks — we’ll be in touch within one business day.";
+        }else{
+          responseMsg.style.display="block";
+          responseMsg.textContent="Something went wrong. Please try again.";
         }
-
-        // Success
-        form.reset();
-        chips.forEach(c => c.setAttribute('aria-pressed','false'));
-        updateServices();
-        statusBox.style.display = 'block';
-        statusBox.style.borderColor = 'rgba(34,211,165,.5)';
-        statusBox.textContent = 'Thanks — we’ve received your message and will reply within one business day.';
-      } catch (err) {
-        statusBox.style.display = 'block';
-        statusBox.style.borderColor = '#a33';
-        statusBox.textContent = 'Sorry, something went wrong. Please email team@howlers.agency directly.';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send';
+      }catch(err){
+        responseMsg.style.display="block";
+        responseMsg.textContent="Error sending. Try again later.";
       }
     });
   </script>
