@@ -94,7 +94,7 @@
     .btn-ghost:hover{background:#1a1d24}
 
     /* Type */
-    h1{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400}
+    h1{font-family:"Barlow Semi Condensed",sans-serif;font-weight:400; text-wrap:balance;}
     h2,h3,h4{font-family:"Barlow Semi Condensed",sans-serif;font-weight:300}
     .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin:0 0 10px}
     .title{font-size:40px;margin:0 0 12px;line-height:1.15}
@@ -144,7 +144,7 @@
 
     form{display:grid;gap:16px;max-width:680px}
     label{font-size:13px;color:var(--muted)}
-    input,select,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#0d1015;color:var(--text)}
+    input,select,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#0d1015;color:#var(--text)}
     textarea{min-height:140px}
     .form-submit{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:500;transition:.2s ease;font-size:15px;position:relative;z-index:1;background:rgba(255,255,255,0.04);color:#fff;border:1px solid transparent;background-clip:padding-box}
     .form-submit::before{
@@ -164,7 +164,7 @@
     .choices {display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 22px}
     .choice {
       appearance:none; -webkit-appearance:none; -moz-appearance:none;
-      border:1px solid var(--line); background:#0d1015; color:var(--text);
+      border:1px solid var(--line); background:#0d1015; color:#E8EAEC;
       padding:10px 16px; border-radius:999px; font-size:15px; cursor:pointer;
       transition:.18s ease; line-height:1; user-select:none;
     }
@@ -217,11 +217,27 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <h1>Building insurance brands <br> that win trust and drive growth.</h1>
+        <h1>Building insurance brands that win trust and drive growth.</h1>
         <p>We leave clichés at the door, reshaping outdated identities into fresh, credible brands that make your business impossible to ignore.</p>
         <div class="links">
           <a class="btn btn-primary" href="#contact">Book a consult</a>
           <a class="btn btn-ghost" href="#how">Read the approach</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE HELP (moved just below the fold) -->
+    <section>
+      <div class="wrap">
+        <p class="kicker">Who we help</p>
+        <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
+        <div class="who-grid">
+          <div class="who-card"><span>•</span> Look and sound like everyone else, and need distinction.</div>
+          <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
+          <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
+          <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
+          <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
+          <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
         </div>
       </div>
     </section>
@@ -240,22 +256,6 @@
       </div>
     </section>
 
-        <!-- WHO WE HELP -->
-    <section>
-      <div class="wrap">
-        <p class="kicker">Who we help</p>
-        <h2 class="title">We work with insurers, brokers, MGAs, and insurtechs who:</h2>
-        <div class="who-grid">
-          <div class="who-card"><span>•</span> Look and sound like everyone else, and need distinction.</div>
-          <div class="who-card"><span>•</span> Have modern products but an outdated image.</div>
-          <div class="who-card"><span>•</span> Struggle to balance credibility with creativity.</div>
-          <div class="who-card"><span>•</span> Need brands that work across geographies, products, and teams.</div>
-          <div class="who-card"><span>•</span> Want strategies sales can actually use, not just marketing theatre.</div>
-          <div class="who-card"><span>•</span> Believe trust and clarity are the foundation of growth.</div>
-        </div>
-      </div>
-    </section>
-    
     <!-- CAPABILITIES -->
     <section id="what">
       <div class="wrap">
